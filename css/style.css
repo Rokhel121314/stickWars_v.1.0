@@ -1,0 +1,32 @@
+.container-fluid {
+    background-color: black;
+    height: 100vh;
+}
+
+/* <!-- POINTS/ROUND ================================================== --> */
+
+.roundPointsDiv {
+    height: 10vh;
+}
+
+
+
+/* <!-- PLAYER1/PLAYER2 HP ================================================== --> */
+
+.hitPointsDiv {
+    height: 15vh;
+}
+
+
+/* <!-- ACTION SCREEN/UI ================================================== --> */
+
+.actionScreenDiv {
+    height: 50vh;
+}
+
+
+/* <!- BUTTON AND FUNCTIONS ================================================== --> */
+
+.atkButtonDiv {
+    height: 25VH;
+}
