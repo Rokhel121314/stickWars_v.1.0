@@ -13,20 +13,20 @@
     <div class="container-fluid">
 
 <!-- POINTS/ROUND ================================================== -->
-        <div class="row roundPointsDiv mt-5">
+        <div class="row roundPointsDiv d-flex align-items-center">
 
             <!-- player 1 points -->
-            <div class="col-4 d-flex flex-row justify-content-end" id="p1PointDiv">
+            <div class="col-5 col-sm-4 d-flex flex-row justify-content-center justify-content-sm-end" id="p1PointDiv">
 
             </div>
 
             <!-- rounds -->
-            <div class="col-4">
+            <div class="col col-sm-4 text-center text-success" id="roundsNum">
 
             </div>
 
             <!-- player 2 points -->
-            <div class="col-4 d-flex flex-row justify-content-start" id="p2PointDiv">
+            <div class="col-5 col-sm-4 d-flex flex-row justify-content-center justify-content-sm-start" id="p2PointDiv">
 
             </div>
 
@@ -37,14 +37,14 @@
         <div class="row hitPointsDiv">
 
             <!-- player 1 hitpoints -->
-            <div class="col-5 d-flex flex-column align-items-center" id="p1HPDiv">
+            <div class="col-5 d-flex flex-row flex-lg-column align-items-center justify-content-center" id="p1HPDiv">
 
             </div>
             <!-- spacer -->
             <div class="col-2"></div>
 
             <!-- player 2 hitpoints -->
-            <div class="col-5 d-flex flex-column align-items-center" id="p2HPDiv">
+            <div class="col-5 d-flex flex-row flex-lg-column align-items-center justify-content-center" id="p2HPDiv">
 
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="row actionScreenDiv ">
 
             <!-- battle screen -->
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col d-flex justify-content-center w-auto">
                 <img id="actionInterface" src="basestates/stationary-statetitle.gif" alt="">
                 <img src="" alt="">
             </div>
@@ -63,18 +63,18 @@
         <div class="row atkButtonDiv">
 
             <!-- player 1 button -->
-            <div class="col-5 d-flex flex-column align-items-center" id="p1Btn">
+            <div class="col-5 d-flex flex-column align-items-center justify-content-start" id="p1Btn">
 
             </div>
             <!-- spacer -->
             <div class="col-2 d-flex justify-content-center">
                 <form id="resetGame" action="">
-                    <button id="gameStart">GAME START</button>
+                    <button id="gameStart">START GAME</button>
                 </form>
             </div>
 
             <!-- player 2 button -->
-            <div class="col-5 d-flex flex-column align-items-center" id="p2Btn">
+            <div class="col-5 d-flex flex-column align-items-center justify-content-start" id="p2Btn">
 
             </div>
         </div>

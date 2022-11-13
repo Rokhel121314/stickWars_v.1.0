@@ -13,6 +13,9 @@ function startGame() {
     p1PointDiv.insertAdjacentElement("beforeend", p1Score);
     p2PointDiv.insertAdjacentElement("beforeend", p2Score);
 
+    //ROUNDS
+    roundsNum.appendChild(numRounds);
+
 
     //hp
     p1HPDiv.appendChild(p1HP);
@@ -30,13 +33,21 @@ function startGame() {
     actionInterface.replaceWith(actionInterface);
     
     //REMAKE
+    //reenable atk buttons
     p1AtkBtn.removeAttribute("disabled", "");
     p2AtkBtn.removeAttribute("disabled", "");
 
-    p1HPCount.textContent = "30";
-    p2HPCount.textContent = "30";
-    basep2HP = 30;
-    basep1HP = 30;
+    //reseting HP
+    p1HPCount.textContent = "20";
+    p2HPCount.textContent = "20";
+    basep2HP = 20;
+    basep1HP = 20;
+    //reseting Rounds
+    numRounds.textContent = "ROUND" + " " + 0;
+    baseRoundCount = 0;
+    //reseting HP color
+    p1HPCount.style = "color:black;"
+    p2HPCount.style = "color:black;"
 
 }
 
@@ -49,14 +60,12 @@ let p1PointDiv = document.querySelector("#p1PointDiv");
 let p1Points = document.createElement("h4");
 p1Points.textContent = "POINTS:"
 let p1Score = document.createElement("h4");
+p1Score.classList = "pScore";
 p1Score.textContent = 1;
 
 //p1 score
 p1Score.textContent = "0";
 basep1Score = 0;
-
-
-
 
 
 // PLAYER 2
@@ -65,6 +74,7 @@ let p2PointDiv = document.querySelector("#p2PointDiv");
 let p2Points = document.createElement("h4");
 p2Points.textContent = "POINTS:"
 let p2Score = document.createElement("h4");
+p2Score.classList = "pScore";
 p2Score.textContent = 1;
 
 //p1 score
@@ -80,8 +90,8 @@ let p1HPDiv = document.querySelector("#p1HPDiv");
 let p1HP = document.createElement("h4");
 p1HP.textContent = "HP:"
 let p1HPCount = document.createElement("h4");
-p1HPCount.textContent = "30"
-basep1HP = 30;
+p1HPCount.textContent = "20"
+basep1HP = 20;
 
 // PLAYER 2
 let p2HPDiv = document.querySelector("#p2HPDiv");
@@ -89,8 +99,8 @@ let p2HPDiv = document.querySelector("#p2HPDiv");
 let p2HP = document.createElement("h4");
 p2HP.textContent = "HP:"
 let p2HPCount = document.createElement("h4");
-p2HPCount.textContent = "30"
-basep2HP = 30;
+p2HPCount.textContent = "20"
+basep2HP = 20;
 
 //<!-- ACTION/FIGHT ================================================== --> 
 
@@ -108,6 +118,8 @@ p1AtkBtn.textContent = "STRIKE!!";
 p1AtkBtn.addEventListener("click", attackP2);
 
 function attackP2() {
+
+    countRound()
     
     let atkStrike = Math.floor(Math.random()*4);
     console.log(atkStrike);
@@ -184,6 +196,14 @@ function attackP2() {
         gameStart.textContent = "REMATCH";
     }
 
+    if (basep2HP <= 7 ){
+        const myTimeout = setTimeout(p2HPDisplay, 2500);
+
+        function p2HPDisplay() {
+            p2HPCount.style = "color:red;"
+        }
+    }
+
     if (basep1Score == 2) {
         p1Score.textContent = "PLAYER 1 WIN";
         p2Score.textContent = "PLAYER 2 LOST";
@@ -206,6 +226,8 @@ p2AtkBtn.textContent = "THROW!!";
 p2AtkBtn.addEventListener("click", attackP1);
 
 function attackP1() {
+
+    countRound()
     
     let atkStrike = Math.floor(Math.random()*4);
     console.log(atkStrike);
@@ -282,6 +304,15 @@ function attackP1() {
         gameStart.textContent = "REMATCH";
     }
 
+    
+    if (basep1HP <= 7 ){
+        const myTimeout = setTimeout(p1HPDisplay, 2500);
+
+        function p1HPDisplay() {
+            p1HPCount.style = "color:red;"
+        }
+    }
+
     if (basep2Score == 2) {
         p2Score.textContent = "PLAYER 1 WIN";
         p1Score.textContent = "PLAYER 2 LOST";
@@ -312,6 +343,22 @@ function rstGame() {
     basep2Score = 0;
 
     gameReset.removeChild(resetBtn);
+}
+
+//number of rounds
+let roundsNum = document.querySelector("#roundsNum");
+let numRounds = document.createElement("h5");
+
+numRounds.type = "text";
+numRounds.textContent = "ROUND" + " " + 0;
+let baseRoundCount = 0;
+
+
+function countRound() {
+    let newbaseRoundCount = baseRoundCount + 1;
+    baseRoundCount = newbaseRoundCount;
+    numRounds.textContent = "ROUND" + " " + baseRoundCount;
+
 }
 
 
